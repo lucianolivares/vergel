@@ -1,0 +1,40 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+
+<BaseScreenView>:
+    md_bg_color: 1, 1, 1, 1
+
+<MDNavigationDrawer>:
+    md_bg_color: app.theme_cls.bg_normal
+    radius: (0, 16, 16, 0) if self.anchor == "left" else (16, 0, 0, 16)
+
+    MDNavigationDrawerMenu:
+
+        MDNavigationDrawerHeader:
+            title: "Vergel"
+            title_font_style: "H3"
+            padding: "12dp", 0, 0, "20dp"
+
+        MDNavigationDrawerLabel:
+            text: "Jardin"
+
+        DrawerClickableItem:
+            icon: "tree"
+            focus_color: app.theme_cls.primary_color
+            unfocus_color: app.theme_cls.bg_normal
+            on_release: app.manager_screens.current = "main screen"
+            text: "Menú Principal"
+            on_release: 
+                root.set_state()
+                app.manager_screens.current = "plagas screen"
+
+        DrawerClickableItem:
+            icon: "spray"
+            text: "Plagas"
+            focus_color: app.theme_cls.primary_color
+            unfocus_color: app.theme_cls.bg_normal
+            on_release: 
+                root.set_state()
+                app.manager_screens.current = "plagas screen"

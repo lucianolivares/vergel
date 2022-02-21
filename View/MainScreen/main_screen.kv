@@ -1,0 +1,34 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<MainScreenView>
+    ScreenLayout:
+        title: "Vergel"
+        caption: "Aqui podras encontrar todo sobre el cuidado de tu jardin"
+        subTitle: "Temas Disponibles"
+        nav_button: app.navigation_drawer.set_state
+        MDBoxLayout:
+            orientation: "vertical"
+            MDLabel:
+                font_style: "H5"
+                text: "Contenido"
+                size_hint_y: 0.1
+                line_height: 1
+                padding_x: "10dp"
+
+            ScrollView:
+                GridContent:
+                    Card:
+                        text: "Plagas"
+                        on_release: app.manager_screens.current = "plagas screen"
+                    Card:
+                        text: "Beneficios"
+                    Card:
+                        text: "Árboles"
+                    Card:
+                        text: "Plantas"
+                    Card:
+                        text: "Insecticida"
+                    Card:
+                        text: "Fertilizantes"
+
+

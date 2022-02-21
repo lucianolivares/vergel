@@ -1,0 +1,30 @@
+<PlagasScreenView>
+    ScreenLayout:
+        title: "Plagas"
+        caption: "Las plagas pueden ser insector o acaros que dañan tus plantas"
+        subTitle: "Explorar"
+        nav_button: app.navigation_drawer.set_state
+
+        MDBoxLayout:
+            orientation: "vertical"
+            MDLabel:
+                font_style: "H5"
+                text: "Principales Plagas"
+                size_hint_y: 0.1
+                line_height: 1
+                padding_x: "10dp"
+
+            ScrollView:
+                GridContent:
+                    Card:
+                        text: "Polilla"
+                    Card:
+                        text: "Pulgones"
+                    Card:
+                        text: "Avispas"
+                    Card:
+                        text: "Arañas"
+                    Card:
+                        text: "Larva"
+                    Card:
+                        text: "Torque"
