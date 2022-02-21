@@ -57,11 +57,13 @@ class vergel(MDApp):
         """
         Custom colors
         """
-
+        self.theme_cls.material_style = "M3"
+        self.theme_cls.theme_style = "Light"
         self.theme_cls.primary_palette = "Green"
         self.theme_cls.primary_hue = "300"
-        self.theme_cls.accent_palette = "Gray"
-        self.theme_cls.accent_hue = "300"
+        self.theme_cls.primary_dark_hue = "700"
+        self.theme_cls.accent_palette = "Green"
+        self.theme_cls.accent_hue = "100"
         """
         Add fonts to themes 
         """
@@ -78,11 +80,12 @@ class vergel(MDApp):
             "H3": ["Poppins", 48, False, 0],
         }
         self.theme_cls.font_styles.update(font_styles)
-
-        self.navigation_layout = MDNavigationLayout()
-
-        self.navigation_drawer = MDNavigationDrawer()
+        """
+        Add NavigationLayout - Drawer - ScreenManager
+        """
         self.manager_screens = ScreenManager()
+        self.navigation_layout = MDNavigationLayout()
+        self.navigation_drawer = MDNavigationDrawer()
 
         Window.bind(on_key_down=self.on_keyboard_down)
         importlib.reload(View.screens)
@@ -98,6 +101,7 @@ class vergel(MDApp):
 
         self.navigation_layout.add_widget(self.manager_screens)
         self.navigation_layout.add_widget(self.navigation_drawer)
+        #self.manager_screens.current = "plagas screen"
         return self.navigation_layout
 
     def on_keyboard_down(self, window, keyboard, keycode, text, modifiers) -> NoReturn:
