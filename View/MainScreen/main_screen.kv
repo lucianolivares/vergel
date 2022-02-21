@@ -1,10 +1,7 @@
-#:import hex kivy.utils.get_color_from_hex
-
 <MainScreenView>
     ScreenLayout:
         title: "Vergel"
         caption: "Aqui podras encontrar todo sobre el cuidado de tu jardin"
-        subTitle: "Temas Disponibles"
         nav_button: app.navigation_drawer.set_state
         MDBoxLayout:
             orientation: "vertical"
@@ -14,12 +11,14 @@
                 size_hint_y: 0.1
                 line_height: 1
                 padding_x: "10dp"
-
             ScrollView:
                 GridContent:
                     Card:
                         text: "Plagas"
-                        on_release: app.manager_screens.current = "plagas screen"
+                        on_release: 
+                            app.manager_screens.current = "plagas screen"
+                            app.navigation_drawer.plagas.selected = True
+                            app.navigation_drawer.main.selected = False
                     Card:
                         text: "Beneficios"
                     Card:
