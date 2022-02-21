@@ -1,13 +1,22 @@
 <DrawerClickableItem@MDNavigationDrawerItem>
-
-
-<DrawerLabelItem@MDNavigationDrawerItem>
-
-<BaseScreenView>:
-    md_bg_color: 1, 1, 1, 1
+    focus_color: app.theme_cls.primary_color
+    text_color: app.theme_cls.opposite_bg_dark
+    icon_color: app.theme_cls.opposite_bg_dark
+    selected_color: app.theme_cls.primary_dark
+    radius: 10
+    text_color:
+        ( \
+        app.theme_cls.text_color \
+        if not root.icon_color else \
+        root.icon_color \
+        ) \
+        if not root.selected else \
+        root.selected_color
 
 <MDNavigationDrawer>:
-    md_bg_color: app.theme_cls.bg_normal
+    id: nav_drawer
+    main: main
+    plagas: plagas
     radius: (0, 16, 16, 0) if self.anchor == "left" else (16, 0, 0, 16)
 
     MDNavigationDrawerMenu:
@@ -21,20 +30,18 @@
             text: "Jardin"
 
         DrawerClickableItem:
+            id: main
             icon: "tree"
-            focus_color: app.theme_cls.primary_color
-            unfocus_color: app.theme_cls.bg_normal
-            on_release: app.manager_screens.current = "main screen"
+            selected: True
             text: "Menú Principal"
             on_release: 
                 root.set_state()
-                app.manager_screens.current = "plagas screen"
+                app.manager_screens.current = "main screen"
 
         DrawerClickableItem:
+            id: plagas
             icon: "spray"
             text: "Plagas"
-            focus_color: app.theme_cls.primary_color
-            unfocus_color: app.theme_cls.bg_normal
-            on_release: 
+            on_release:
                 root.set_state()
                 app.manager_screens.current = "plagas screen"
