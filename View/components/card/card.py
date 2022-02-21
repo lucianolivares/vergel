@@ -23,4 +23,4 @@ class Card(MDCard, RoundedRectangularElevationBehavior, ThemableBehavior, HoverB
         '''The method will be called when the mouse cursor goes beyond
         the borders of the current widget.'''
 
-        self.md_bg_color = self.theme_cls.accent_color
+        self.md_bg_color = self.theme_cls.bg_light
